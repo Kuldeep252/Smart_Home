@@ -1,0 +1,198 @@
+
+#include<Servo.h>
+#define echoPin 7 // Echo Pin
+#define trigPin 8 // Trigger Pin
+Servo servowindow1; //window 1 servo variable
+Servo servogate;    // Gate servo operation variable
+Servo servosprinkler; // Sprinklers Servo variable
+Servo servowindow2; // window 2 servo variable
+int LDR = 1;        //analog pin to which LDR is connected, here we set it to 0 so it means A0
+int LDRValue = 0;   //that’s a variable to store LDR values
+int light_sensitivity = 120;    //This is the approx value of light surrounding your LDR
+int maximumRange = 50;        // Maximum range needed
+int minimumRange = 0; 
+int pos = 0; 
+int dos=0; 
+int p=0;                      
+long duration, distance;      // Duration used to calculate distance
+                              // the setup routine runs once when you press reset:
+void setup() {
+  
+  Serial.begin(9600);
+   servowindow1.attach(3); //Servo pin connections for various servos
+  servowindow2.attach(5); 
+   servogate.attach(9);
+   servosprinkler.attach(11);
+  pinMode(12, OUTPUT);    //Led connection for Lights
+  digitalWrite(12, LOW);
+   pinMode(trigPin, OUTPUT);
+ pinMode(echoPin, INPUT); // Use LED indicator (if required)
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+int p;
+p=check();
+if(p==1)
+sensor();  
+if(p==0)
+Serial.print("error!!!")
+else
+{
+  mobile(&P);
+  }
+}
+ void sensor() //Function for Ultrasonic Sensor obstacle distance calculations
+ {
+   delay(500);
+ digitalWrite(trigPin, LOW); 
+ delayMicroseconds(2); 
+
+ digitalWrite(trigPin, HIGH);
+ delayMicroseconds(10); 
+ 
+ digitalWrite(trigPin, LOW);
+ duration = pulseIn(echoPin, HIGH);
+ 
+ 
+ distance = duration/58.2;
+ 
+ if (distance >= maximumRange || distance <= minimumRange){
+
+ Serial.print("No One at gate         ");
+ Serial.println(distance);
+ servogate.write(53); 
+ }
+ else {
+
+ Serial.print("Someone Present at gate       ")
+  Serial.println(distance);  
+    servogate.write(100);              
+
+ }
+ LDRValue = analogRead(LDR);
+ Serial.print("\nLDR value     "); //reads the ldr’s value through LDR 
+ Serial.println(LDRValue);    //prints the LDR values to serial monitor
+
+
+ delay(200);
+     if (LDRValue < light_sensitivity)  //Controls LED switching based on surrounding darkness
+      {
+        digitalWrite(12, HIGH);
+      }
+    else
+      {
+        digitalWrite(12, LOW);
+      }
+        int sensorvalue= analogRead(A2);
+        Serial.print("\nRain Sensor      ");
+        Serial.println(sensorvalue);
+        if(sensorvalue<500)
+        {
+                                
+    servowindow1.write(170);
+servowindow2.write(170);      
+        }
+        else
+        {
+                             
+    servowindow1.write(100);
+servowindow2.write(100);     
+  }
+        // Reading of bluetooth code
+    String t;
+    while(Serial.available()) { //keep reading bytes while they are still more in the buffer
+    t += (char)Serial.read(); //read byte, convert to char, and append it to string
+  }
+  if(t=="off")
+  {
+    mobile();
+  }
+ }
+    void mobile(int s)
+    {
+
+    if(s == 7) { 
+      digitalWrite(12, HIGH); //Set digital pin to high to turn LED on 
+    }
+    if (s== 8) { 
+      digitalWrite(12, LOW);  
+    }
+   if(s==5){
+         
+                                  
+    servogate.write(100);              
+                          
+  
+   }
+if(t==6){
+         
+                                  
+    servogate.write(53);            
+  
+}
+if(t=="swo"){
+   for(pos = 90; pos>=50; pos-=1)      
+  {                                
+    servowindow1.write(pos); 
+    servowindow2.write(pos); 
+    delay(50);                       // waits 50ms for the servo to reach the position 
+  } 
+}
+  if(t=="swc"){
+   for(pos = 50; pos>=90; pos+=1)     
+  {                                
+    servowindow1.write(pos);
+servowindow2.write(pos);     
+    delay(50);                        
+  }
+  } 
+  if(t=="sso"){
+   for(pos = 50; pos>=90; pos+=1)     
+  {                                
+    servosprinkler.write(pos);               
+    delay(50);                       
+  } 
+  }
+  if(t=="ssc"){
+      for(pos = 90; pos>=53; pos-=1)      
+  {                                
+    servosprinkler.write(pos);               
+    delay(50);                       
+  }
+  }
+  
+    }
+    int check(){
+      int i;
+     String t;
+    while(Serial.available()) { 
+    t += (char)Serial.read(); //read byte, convert to char, and append it to string
+  }
+  if(t=="on")
+  i=1;
+  if(t=="off")
+  i=2;
+  if(t=="swo")
+  i=3;
+  if(t=="swc")
+  i=4;
+  if(t=="sgo")
+  i=5;
+  if(t=="sgc")
+  i=6;
+  if(t=="lo")
+  i=7;
+  if(t=="lc")
+  i=8;
+  if(t=="sso")
+  i=9;
+  if(t=="ssc")
+  i=10;
+  else 
+  i=0;
+  return i;
+    }
+      
+    
+  

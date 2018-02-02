@@ -1,5 +1,5 @@
 # Smart_Home
-This project is based upon arduino Uno and tries to model a house environment in presence of automtion.  It uses 3 sensors which provides input along with bluetooth transmitter/receiver.The output is delivered via servo motors and LED lights which controls the respective operations.
+This project is based upon arduino Uno and tries to model a house environment in presence of automtion.  It uses 3 sensors which provides input along with bluetooth transmitter/receiver.The output is delivered via servo motors and LED lights which controls the respective operations.Click [here](https://www.youtube.com/watch?v=IT07HGOR8mw&t=60s) to watch the video (sorry for noises in Audio)
 
 ## prerequisite
  

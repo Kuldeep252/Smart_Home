@@ -1,5 +1,5 @@
 # Smart_Home
-This project is based upon arduino Uno and tries to model a house environment in presence of automtion.  It uses 3 sensors which provides input along with bluetooth transmitter/receiver.The output is delivered via servo motors and LED lights which controls the respective operations.Click [here](https://www.youtube.com/watch?v=IT07HGOR8mw&t=60s) to watch the video (sorry for noises in Audio)
+![](https://raw.githubusercontent.com/Kuldeep252/Smart_Home/master/Home1.jpg)This project is modeled over arduino Uno and tries to recreate a house environment in presence of automtion.  It uses 3 sensors which provides input along with bluetooth transmitter/receiver.The output is delivered via servo motors and LED lights which controls the respective operations.Click [here](https://www.youtube.com/watch?v=9MvSyy1kmfc) to watch the video (sorry for noises in Audio)
 
 ## prerequisite
  
@@ -17,8 +17,8 @@ This project is based upon arduino Uno and tries to model a house environment in
 
 
 ## Getting Started
- Connection for each pin is given in the program.The 3D image of the house is also attached with this repository.
- MIT app creater will be used for development of android application.The app will transmits the signal(alphabetic code) to the bluetooth module,
- which will feed it to program where decoding of the signal takes place and operations are made accordingly.
+ Connection for each pin is given in the program.Few images of the house are also attached with this repository.
+ MIT app creater was used for development of android application.![](https://raw.githubusercontent.com/Kuldeep252/Smart_Home/master/screenshot.jpg)The app transmits the signal(alphanumeric code) to the bluetooth module,
+ which it feeds to program where decoding of the signal takes place and operations are made accordingly.
  
  #### Proceed to Code file to know the software

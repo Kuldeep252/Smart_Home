@@ -21,4 +21,4 @@
  MIT app creater was used for development of android application.![](https://raw.githubusercontent.com/Kuldeep252/Smart_Home/master/screenshot.jpg)The app transmits the signal(alphanumeric code) to the bluetooth module,
  which it feeds to program where decoding of the signal takes place and operations are made accordingly.
  
- #### Proceed to Code file to know the software
+ #### To access the code click [here](https://github.com/Kuldeep252/Smart_Home/blob/master/Code)

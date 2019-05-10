@@ -17,7 +17,7 @@
 
 
 ## Getting Started
-Connection for each pin is given in the program. A few images of the house are also attached to this repository. MIT app creator was used for the development of the Android application.![](https://raw.githubusercontent.com/Kuldeep252/Smart_Home/master/screenshot.jpg)The app transmits the signal(alphanumeric code) to the bluetooth module,
- which it feeds to program where decoding of the signal takes place and operations are made accordingly.
+The connection for each pin is given in the code attached. Some images of the house are also attached to this repository. MIT app creator was used for the development of the Android application.![](https://raw.githubusercontent.com/Kuldeep252/Smart_Home/master/screenshot.jpg)The app transmits the signal (alphanumeric code) to the Bluetooth module,
+ which then feeds it to the program where decoding of the signal takes place and operations are selected accordingly.
  
  #### To access the code click [here](https://github.com/Kuldeep252/Smart_Home/blob/master/Code)

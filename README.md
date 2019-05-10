@@ -1,5 +1,5 @@
 # Smart_Home
-![](https://raw.githubusercontent.com/Kuldeep252/Smart_Home/master/Home1.jpg)This project is modeled over arduino Uno and tries to recreate a house environment in presence of automtion.  It uses 3 sensors which provides input along with bluetooth transmitter/receiver.The output is delivered via servo motors and LED lights which controls the respective operations.Click [here](https://www.youtube.com/watch?v=9MvSyy1kmfc) to watch the video.
+![](https://raw.githubusercontent.com/Kuldeep252/Smart_Home/master/Home1.jpg)This project is modeled over Arduino Uno and tries to recreate a house environment in the presence of automation. It uses 3 sensors that provide input along with Bluetooth transmitter/receiver. The output is delivered via servo motors and LED lights which controls the respective operations. Click [here](https://www.youtube.com/watch?v=9MvSyy1kmfc) to watch the video.
 
 ## prerequisite
  
